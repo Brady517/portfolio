@@ -66,12 +66,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
             ))}
           </div>
         </div>
-        <div className="card-actions justify-end mt-auto"> {/* mt-auto pushes buttons to bottom */}
-          {/*{project.liveLink && (
-            <Link href={project.liveLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">
-              Live Demo 
-            </Link>
-          )}*/}
+        <div className="card-actions justify-end mt-auto"> 
+         
           {project.repoLink && (
             <Link href={project.repoLink} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-sm">
               GitHub Repo 
