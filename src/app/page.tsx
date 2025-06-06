@@ -1,4 +1,4 @@
-// src/app/page.tsx
+
 import Link from 'next/link';
 import Image from 'next/image';
 // background image
@@ -14,7 +14,10 @@ export default function HomePage() {
         className="-z-10"
       />
       {/* overlay */}
-      <div className="hero-overlay bg-[#00000099]"></div>
+      <div className="hero-overlay" style={{
+        background: 'radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
+        transform: 'scale(1.5)'
+      }}></div>
 
       <div className="hero-content text-center text-base-content">
         <div className="max-w-md">

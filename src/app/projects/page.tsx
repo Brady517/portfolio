@@ -4,22 +4,20 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "My Projects - Brady Osburn", 
-  description: "A showcase of projects I've built.", 
+  title: "My Projects - Brady Osburn",
+  description: "A showcase of projects I've built.",
 };
 
-// project data
 interface Project {
   id: string;
   title: string;
   description: string;
-  imageUrl: string; 
+  imageUrl: string;
   techStack: string[];
-  liveLink?: string; 
-  repoLink?: string; 
+  liveLink?: string | null;
+  repoLink?: string;
 }
 
-// projects
 const myProjects: Project[] = [
   {
     id: "project-1",
@@ -36,41 +34,48 @@ const myProjects: Project[] = [
     imageUrl: "/cs2.webp",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Firebase Auth"],
     repoLink: "https://github.com",
-  },
-  // Add more projects here when i make them
+  }
 ];
 
-// Project Card Component
+// ---ProjectCard Component ---
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <div className="card bg-base-100 shadow-xl transition-all duration-300 hover:shadow-2xl">
-      <figure className="h-48 sm:h-56 overflow-hidden"> 
+    
+    <div className="card card-bordered bg-base-100 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 group">
+      <figure className="h-56 overflow-hidden">
         <Image
           src={project.imageUrl}
           alt={`Screenshot of ${project.title}`}
-          width={500} 
-          height={300} 
-          className="w-full h-full object-cover " 
+          width={500}
+          height={300}
+          // Add transition and hover effect to the image
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title text-2xl">{project.title}</h2>
+        
+        <h2 className="card-title text-2xl text-primary">{project.title}</h2>
         <p className="text-base-content/80 text-sm min-h-[60px]">{project.description}</p>
         <div className="mt-2 mb-3">
-          <h3 className="font-semibold text-sm mb-2">Tech Stack: </h3>
+          <h3 className="font-semibold text-sm mb-2">Tech Stack:</h3>
           <div className="flex flex-wrap gap-2">
             {project.techStack.map((tech) => (
-              <div key={tech} className="badge badge-neutral">
+              
+              <div key={tech} className="badge badge-secondary badge-outline">
                 {tech}
               </div>
             ))}
           </div>
         </div>
-        <div className="card-actions justify-end mt-auto"> 
-         
+        <div className="card-actions justify-end mt-auto">
+          {project.liveLink && (
+            <Link href={project.liveLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">
+              Live Demo
+            </Link>
+          )}
           {project.repoLink && (
             <Link href={project.repoLink} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-sm">
-              GitHub Repo 
+              GitHub Repo
             </Link>
           )}
         </div>
@@ -79,7 +84,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
   );
 };
 
-// Projects Page Component
+// --- Main Page Component ---
 export default function ProjectsPage() {
   return (
     <div className="space-y-12 py-8">
@@ -95,7 +100,7 @@ export default function ProjectsPage() {
           More projects are on the way. Stay tuned!
         </p>
       ) : (
-        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
           {myProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

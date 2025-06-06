@@ -1,14 +1,15 @@
 
+
 import type { Metadata } from 'next';
-import Link from 'next/link'; 
+import { FaDownload, FaExclamationTriangle } from 'react-icons/fa'; 
 
 export const metadata: Metadata = {
-  title: "My Resume - Brady Osburn", 
+  title: "My Resume - Brady Osburn",
   description: "Download my professional resume to learn more about my skills and experience.",
 };
 
 export default function ResumePage() {
-  const resumePdfPath = "/MyResume.pdf"; 
+  const resumePdfPath = "/MyResume.pdf";
 
   return (
     <div className="space-y-12 py-8">
@@ -23,10 +24,11 @@ export default function ResumePage() {
       <section className="container mx-auto px-4 text-center">
         <a
           href={resumePdfPath}
-          download 
+          download
           className="btn btn-primary btn-lg"
           aria-label="Download my resume"
         >
+          <FaDownload className="mr-2" /> 
           Download Resume (PDF)
         </a>
         <p className="mt-4 text-sm text-base-content/60">
@@ -34,26 +36,32 @@ export default function ResumePage() {
         </p>
       </section>
 
-      {/* Embedded PDF Section  */}
-      
+      {/* Embedded PDF Section */}
       <section className="container mx-auto px-4 mt-16">
         <h2 className="text-3xl font-bold text-center mb-8">View Online</h2>
-        <div className="aspect-[8.5/11] w-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-2xl border border-base-300">
-          
-          
-           <iframe
-            src={`${resumePdfPath}#toolbar=0&navpanes=0&scrollbar=0`} 
-            className="w-full h-full"
-            title="My Resume Embedded PDF"
-            
-          />
+        
+        {/* Using mockup-window to frame the PDF */}
+        <div className="mockup-window border bg-base-300 border-primary max-w-4xl mx-auto">
+          <div className="aspect-[8.5/11] w-full bg-base-200">
+            <iframe
+              src={`${resumePdfPath}#toolbar=0&navpanes=0&scrollbar=0`}
+              className="w-full h-full"
+              title="My Resume Embedded PDF"
+            />
+          </div>
         </div>
-        <p className="mt-4 text-xs text-center text-base-content/50">
-          Note: Embedded PDF viewing experience can vary across browsers and devices.
-          For the best experience, please download the resume.
-        </p>
+
+        {/* Using alert component for the note */}
+        <div role="alert" className="alert alert-warning shadow-lg mt-8 max-w-4xl mx-auto">
+          <FaExclamationTriangle />
+          <div>
+            <h3 className="font-bold">Note</h3>
+            <div className="text-xs">
+              Embedded PDF viewing experience can vary across browsers and devices. For the best experience, please download the resume.
+            </div>
+          </div>
+        </div>
       </section>
-      
     </div>
   );
 }
