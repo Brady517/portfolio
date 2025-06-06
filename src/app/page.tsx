@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import Image from 'next/image';
 // background image
@@ -31,7 +30,7 @@ export default function HomePage() {
             className="mb-5 text-lg"
             style={{ textShadow: '1px 1px 5px rgba(0, 0, 0, 0.7)' }}
           >
-            Welcome to my portfolio! I'm a passionate Web Developer and Software Engineer
+            Welcome to my portfolio! I&apos;m a passionate Web Developer and Software Engineer
             specializing in creating modern web applications with React and Next.js.
             Explore my work and get in touch!
           </p>

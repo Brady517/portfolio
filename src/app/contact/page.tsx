@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
@@ -28,7 +27,7 @@ export default function ContactPage() {
           Get In Touch
         </h1>
         <p className="mt-3 text-lg max-w-2xl mx-auto text-base-content/70">
-          I'm always open to discussing new opportunities, creative projects, or collaborations.
+          I&apos;m always open to discussing new opportunities, creative projects, or collaborations.
         </p>
       </div>
 

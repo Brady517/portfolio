@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import type { Metadata } from 'next';
 
@@ -47,7 +46,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="md:col-span-2 space-y-4">
-              <h2 className="text-3xl font-semibold">Hello, I'm Brady Osburn</h2>
+              <h2 className="text-3xl font-semibold">Hello, I&apos;m Brady Osburn</h2>
              
               <p className="text-lg leading-relaxed text-base-content/80">
                 I am a driven Software Engineering student at Western Governors University with a passion for building elegant and effective web solutions. My journey into technology began with a deep curiosity for how things work, which has evolved into a dedicated pursuit of software development.
@@ -71,7 +70,7 @@ export default function AboutPage() {
           ))}
         </div>
         <p className="mt-6 text-base-content/70">
-          ...and I'm always eager to learn new technologies!
+          ...and I&apos;m always eager to learn new technologies!
         </p>
       </section>
     </div>

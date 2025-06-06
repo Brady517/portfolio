@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
@@ -91,7 +90,7 @@ export default function ProjectsPage() {
       <div className="text-center">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">My Projects</h1>
         <p className="mt-3 text-lg max-w-2xl mx-auto text-base-content/70">
-          Here are some of the projects I've worked on. Take a look around!
+          Here&apos;s what I&apos;ve been working on. Take a look around!
         </p>
       </div>
 
